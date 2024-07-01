@@ -49,6 +49,36 @@ processor.run_detector(video_path, config_path, checkpoint_path, reduce_fps=30, 
 processor.run_tracker()
 ```
 
+### Running Only the Tracker
+**Explanation**: If you already have detections and want to run only the tracker, set the `use_tracker_only` flag to `True` and provide the paths to the detections CSV and video file, as well as the config and checkpoint paths for initializing the detector.
+
+```python
+# Example: Run tracker only
+processor.run_tracker(
+    use_tracker_only=True,
+    detections_path='path/to/detections.csv',
+    video_path=video_path,
+    config_path=config_path,
+    checkpoint_path=checkpoint_path
+)
+```
+
+**Detections CSV Format**: The detections CSV should have the following format:
+
+| frame_id | x1         | y1         | x2         | y2         | score         | label |
+|----------|------------|------------|------------|------------|---------------|-------|
+| 1        | 441.856201 | 653.499573 | 522.625671 | 733.613220 | 0.9642648101  | 5     |
+| 1        | 1293.729492| 534.785522 | 1366.824951| 614.397888 | 0.9637929797  | 4     |
+| 1        | 523.415527 | 661.935974 | 588.016113 | 728.087829 | 0.9619662166  | 4     |
+
+The columns are:
+- `frame_id`: Frame number in the video.
+- `x1`, `y1`: Coordinates of the top-left corner of the bounding box.
+- `x2`, `y2`: Coordinates of the bottom-right corner of the bounding box.
+- `score`: Confidence score of the detection.
+- `label`: Class label of the detected object.
+
+
 ### Output Files
 All outputs are saved in the `output` directory:
 - **`reduced_fps.mp4`**: Video with reduced frame rate.
