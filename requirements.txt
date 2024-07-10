@@ -1,12 +1,18 @@
-numpy
-scipy
-lap
-cython_bbox
-opencv-python
-matplotlib
-pandas
-tqdm
-torch
-sahi
-imageio
-imageio-ffmpeg
+numpy==1.26.4
+scipy==1.13.1
+lap==0.4.0
+cython_bbox==0.1.5
+opencv-python==4.8.1.78
+matplotlib==3.8.4
+pandas==2.2.2
+tqdm==4.65.2
+torch==2.1.1+cu118
+sahi==0.11.16
+imageio==2.34.2
+imageio-ffmpeg==0.5.1
+moviepy==1.0.3
+
+
+# mmcv: 2.1.0
+# mmdet: 3.3.0
+# pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu118/torch2.1/index.html
